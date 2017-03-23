@@ -1,0 +1,18 @@
+--------------------------------------------------------
+--  DDL for View V_CLOSED_POSITIONS
+--------------------------------------------------------
+
+CREATE OR REPLACE FORCE VIEW "VSU"."V_CLOSED_POSITIONS" ("PRODUCT", "BETACTION", "BET#", "BETOPEN", "BETCLOSE", "PROFITBRUTTO", "PROFIT", "TIMEOPEN", "TIMECLOSE") AS 
+  SELECT 
+REGEXP_SUBSTR (PRODUCT, '(\S*)') PRODUCT
+,BETACTION
+,BET#
+,BETOPEN
+,BETCLOSE
+,PROFITBRUTTO
+,PROFIT
+,TIMEOPEN
+,TIMECLOSE
+FROM 
+T_CLOSED_POSITIONS
+order by TIMECLOSE;
